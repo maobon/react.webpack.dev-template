@@ -2,13 +2,17 @@
  * webpack config
  */
 
-var debug = process.env.NODE_ENV !== "production"
-var webpack = require('webpack')
+var debug = process.env.NODE_ENV !== "production";
+var webpack = require('webpack');
+var path = require('path');
 
 module.exports = {
     context: __dirname + "/src",
     devtool: debug ? "inline-sourcemap" : null,
     entry: "./js/client.js",
+    devServer: {
+        public: '127.0.0.1:8080'
+    },
     module: {
         loaders: [
             {
